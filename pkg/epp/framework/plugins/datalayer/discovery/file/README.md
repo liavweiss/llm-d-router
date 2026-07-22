@@ -87,6 +87,23 @@ endpoints:
     port: "8000"
 ```
 
+A multi-cluster hub example with model labels (used with the
+`model-affinity-filter` scheduling plugin):
+
+```yaml
+endpoints:
+  - name: spoke1-llama
+    address: "10.0.0.1"
+    port: "8000"
+    labels:
+      model: llama-3-70b
+  - name: spoke2-mistral
+    address: "10.0.0.2"
+    port: "8000"
+    labels:
+      model: mistral-7b
+```
+
 ## Limitations
 
 - The endpoints file is capped at 1 MiB.
